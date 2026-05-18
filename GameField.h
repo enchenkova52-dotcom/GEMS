@@ -10,7 +10,7 @@ private:
     int cols;
     int colorCount;
     std::vector<std::vector<Cell>> field;
-bool areNeighbors(Position first, Position second) const;	
+    bool areNeighbors(Position first, Position second) const;	
 
 
 public:
