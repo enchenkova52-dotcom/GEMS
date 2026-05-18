@@ -130,17 +130,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BombBonus.cpp" />
-    <ClCompile Include="cell.cpp" />
+    <ClCompile Include="Cell.cpp" />
     <ClCompile Include="GameField.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="position.h" />
+    <ClCompile Include="Position.h" />
     <ClCompile Include="RepaintBonus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombBonus.h" />
     <ClInclude Include="Bonus.h" />
-    <ClInclude Include="cell.h" />
+    <ClInclude Include="Cell.h" />
     <ClInclude Include="GameField.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="RepaintBonus.h" />
