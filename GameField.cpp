@@ -7,6 +7,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <set>
 
 GameField::GameField(int rows, int cols, int colorCount)
     : rows(rows), cols(cols), colorCount(colorCount), field(rows, std::vector<Cell>(cols)) {
@@ -115,6 +116,18 @@ std::vector<Position> GameField::findMatches() const {
             }
         }
     }
+    std::set<std::pair<int, int>> uniquePositions;
+    std::vector<Position> uniqueMatches;
+
+    for (const Position& pos : matches) {
+        std::pair<int, int> key(pos.row, pos.col);
+
+        if (uniquePositions.insert(key).second) {
+            uniqueMatches.push_back(pos);
+        }
+    }
+
+    matches = uniqueMatches;
 
     return matches;
 }
@@ -134,8 +147,6 @@ void GameField::removeCells(const std::vector<Position>& cells) {
     }
 }
 void GameField::dropCells() {
-
-
     for (int col = 0; col < cols; ++col) {
         int writeRow = rows - 1;
 
