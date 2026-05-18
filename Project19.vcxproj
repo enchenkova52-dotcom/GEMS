@@ -134,7 +134,6 @@
     <ClCompile Include="GameField.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Position.h" />
     <ClCompile Include="RepaintBonus.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +143,7 @@
     <ClInclude Include="GameField.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="RepaintBonus.h" />
+    <ClInclude Include="Position.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
