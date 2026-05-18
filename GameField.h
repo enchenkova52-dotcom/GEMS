@@ -10,6 +10,8 @@ private:
     int cols;
     int colorCount;
     std::vector<std::vector<Cell>> field;
+bool areNeighbors(Position first, Position second) const;	
+
 
 public:
     GameField(int rows, int cols, int colorCount);
@@ -17,7 +19,7 @@ public:
     void fillRandom();
     void print() const;
 
-    bool areNeighbors(Position first, Position second) const;
+    
     bool swapCells(Position first, Position second);
     std::vector<Position> findMatches() const;
     void removeCells(const std::vector<Position>& cells);
