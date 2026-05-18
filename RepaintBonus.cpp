@@ -6,13 +6,6 @@
 #include <algorithm>
 #include <cmath>
 
-static bool areClose(Position a, Position b) {
-    int rowDiff = std::abs(a.row - b.row);
-    int colDiff = std::abs(a.col - b.col);
-
-    return rowDiff <= 3 && colDiff <= 3;
-}
-
 static bool areNeighborsLocal(Position a, Position b) {
     int rowDiff = std::abs(a.row - b.row);
     int colDiff = std::abs(a.col - b.col);
@@ -21,7 +14,7 @@ static bool areNeighborsLocal(Position a, Position b) {
 }
 
 void RepaintBonus::apply(GameField& field, Position target, int sourceColor) {
-    if (!field.isInside(target)) {
+    if (!field.isInside(target) || field.isEmpty(target)) {
         return;
     }
 
@@ -37,6 +30,10 @@ void RepaintBonus::apply(GameField& field, Position target, int sourceColor) {
                 continue;
             }
 
+            if (field.isEmpty(pos)) {
+                continue;
+            }
+
             if (pos.row == target.row && pos.col == target.col) {
                 continue;
             }
@@ -45,9 +42,7 @@ void RepaintBonus::apply(GameField& field, Position target, int sourceColor) {
                 continue;
             }
 
-            if (areClose(pos, target)) {
-                candidates.push_back(pos);
-            }
+            candidates.push_back(pos);
         }
     }
 
